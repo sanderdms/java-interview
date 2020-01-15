@@ -3,8 +3,11 @@ package be.sanderdms.employer;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +38,7 @@ public class EmployerController {
     	return "new_employer";
     }
     
+    
     @RequestMapping("/edit")
     public ModelAndView editEmployerForm(@RequestParam long id){
     	
@@ -51,10 +55,15 @@ public class EmployerController {
     }
     
    
-    
+   
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveEmployer(@ModelAttribute("employer") Employer employer) {
-    	service.save(employer);
+    public String saveEmployer(@Valid @ModelAttribute("employer") Employer employer, Errors error) {
+    	if(error.hasErrors()) {
+    		System.out.println(error);
+    		
+    	}else {
+        	service.save(employer);
+    	}
     	return "redirect:/";
     }
     
