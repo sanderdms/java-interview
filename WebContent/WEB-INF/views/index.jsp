@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Test</title>
+<link href="<c:url value="/css/style.css" />" rel="stylesheet">
+
 </head>
 <body>
 	<h1>CRUD - Hibernate - Test</h1>
@@ -35,6 +37,7 @@
 </td>
 </tr>
 
+    <img alt="image"  src="<c:url value="images/img.jpg" />">
 </c:forEach>
 
 
