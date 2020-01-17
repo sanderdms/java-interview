@@ -3,6 +3,7 @@ package be.sanderdms.employer;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,11 @@ public class EmployerController {
         
         List<Employer> listEmployer =  service.listAll();
         
-        mav.addObject("message", "This is message");
+        mav.addObject("listcount", service.countItems());
         mav.addObject("list", listEmployer);
         return mav;
     }
+    
     
     @RequestMapping("/new")
     public String newEmployerForm(final Model model) {
@@ -78,6 +80,7 @@ public class EmployerController {
     	}else {
         	service.save(employer);
     	}
+    	
     	return "redirect:/";
     }
     

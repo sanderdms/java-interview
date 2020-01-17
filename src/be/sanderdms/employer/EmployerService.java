@@ -23,9 +23,14 @@ public class EmployerService {
 	public Employer getById(long id) {
 		Optional<Employer> result = repo.findById(id);
 		return result.get();
+		
 	}
 	
 	public void delete(long id) {
     	repo.deleteById(id);
     }
+	
+	public Long countItems() {
+		return repo.count();
+	}
 }

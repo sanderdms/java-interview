@@ -17,12 +17,24 @@ public class WebMvcConfig  implements WebMvcConfigurer{
 	  @Override
 	  public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	    registry
-	    .addResourceHandler("/images/**")
-	    .addResourceLocations("/resources/img/");
+	    .addResourceHandler("/assets/images/**")
+	    .addResourceLocations("/resources/tabler/assets/images/");
 	    
 	    registry
-	    .addResourceHandler("/css/**")
-	    .addResourceLocations("/resources/css/");
+	    .addResourceHandler("/assets/css/**")
+	    .addResourceLocations("/resources/tabler/assets/css/");
+	    
+	    registry
+	    .addResourceHandler("/assets/fonts/**")
+	    .addResourceLocations("/resources/tabler/assets/fonts/");
+	    
+	    registry
+	    .addResourceHandler("/assets/js/**")
+	    .addResourceLocations("/resources/tabler/assets/js/");
+	    
+	    registry
+	    .addResourceHandler("/assets/plugins/**")
+	    .addResourceLocations("/resources/tabler/assets/plugins/");
 	    
 	  }
 
@@ -39,5 +51,10 @@ public class WebMvcConfig  implements WebMvcConfigurer{
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
+	  
+	  
 
+	
+	
+	
 }
