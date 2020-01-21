@@ -50,7 +50,7 @@ public class EmployerController {
     public ModelAndView editEmployerForm(@RequestParam long id, final Model model){
     	ModelAndView mav = new ModelAndView("edit_employer");
     	
-    	// Model can be provided in case of errors during /save method
+    	// Model can already be provided in case of errors during /save method
     	// Check if model is already set, else take values from database
     	if(!model.containsAttribute("employer")) {
     		Employer employer = service.getById(id);

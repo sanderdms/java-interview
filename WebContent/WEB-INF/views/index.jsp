@@ -130,7 +130,7 @@
         </div>
       </div>
      
-      <footer class="footer">
+      <footer class="footer d-none">
         <div class="container">
           <div class="row align-items-center flex-row-reverse">
             <div class="col-auto ml-lg-auto">

@@ -118,8 +118,16 @@
                     
                       <div class="col-sm-6 col-md-4">
                         <div class="form-group">
+                         <c:set var="errorCity">
+							<form:errors path="city"/>
+						</c:set>
+						<c:set var="errorCityClass">
+							<c:out value="${empty errorCity ? '' : 'is-invalid'}" />
+						</c:set>	
                           <label class="form-label">Woonplaats</label>
-                          <form:input path="city" type="text" class="form-control" placeholder="Waregem" value=""/>
+                          <form:input path="city" type="text" class="form-control ${errorCityClass}" placeholder="Waregem" value=""/>
+                          <div class="invalid-feedback">${errorCity}</div>
+                          
                         </div>
                       </div>
                       <div class="col-sm-6 col-md-3">
@@ -179,7 +187,7 @@
         </div>
       </div>
      
-      <footer class="footer">
+      <footer class="footer d-none">
         <div class="container">
           <div class="row align-items-center flex-row-reverse">
             <div class="col-auto ml-lg-auto">

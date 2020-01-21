@@ -25,9 +25,9 @@ public class Employer {
 	@NotBlank(message="Gelieve een naam in te voeren")
 	@Size(min=2, max=50, message="Naam moet tussen de 2 en 50 karakters bevatten")
 	private String name;
-	//@NotBlank(message="Gelieve een voornaam in te voeren")
-	//@Size(min=2, max=50, message="voornaam moet tussen de 2 en 50 karakters bevatten")
-	private String fname;
+	@NotBlank(message="Gelieve een voornaam in te voeren")
+	@Size(min=2, max=50, message="Voornaam moet tussen de 2 en 50 karakters bevatten")
+	private String fname; // firstName
 	@NotBlank(message="Gelieve een email in te voeren")
 	@Email(message ="Email is niet geldig")
 	private String email;
@@ -36,6 +36,8 @@ public class Employer {
 	private String address;
 	
 	private Integer availability;
+	
+	@NotBlank(message="Gelieve een stad in te voeren")
 	private String city;
 	private String department;
 	private String[] License;
