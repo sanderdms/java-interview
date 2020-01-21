@@ -4,9 +4,9 @@
   version="2.1">
 	  <persistence-unit name="EmployerDB">
 		  <properties>
-			  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:33060/java-crud"/>
-			  <property name="javax.persistence.jdbc.user" value="homestead"/>
-			  <property name="javax.persistence.jdbc.password" value="secret"/>
+			  <property name="javax.persistence.jdbc.url" value="jdbc:mysql://185.87.187.147:3306/asocia1q_staging"/>
+			  <property name="javax.persistence.jdbc.user" value="asocia1q_user"/>
+			  <property name="javax.persistence.jdbc.password" value="loremipsum"/>
 			  <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			  <property name="hibernate.show_sql" value="true"/>
 			  <property name="hibernate.format_sql" value="true"/>
