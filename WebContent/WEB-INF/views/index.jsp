@@ -4,7 +4,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE html>
-<!doctype html>
 <html lang="nl">
   <head>
     <meta charset="UTF-8">
