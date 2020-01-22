@@ -89,6 +89,14 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        
+<!-- https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-52 -->
+<dependency>
+    <groupId>com.vladmihalcea</groupId>
+    <artifactId>hibernate-types-52</artifactId>
+    <version>2.9.2</version>
+</dependency>
+
 
 
     </dependencies>

@@ -40,20 +40,20 @@ public class Employer {
 
 	//TODO: enumerate departments or fetch from departments table
 	private String department;
+	
 
 	private String[] License;
+	//https://thoughts-on-java.org/jpa-21-how-to-implement-type-converter/
+	//https://github.com/vladmihalcea/hibernate-types
 
 	protected Employer() {
+		
+		// set this.licenceStringArray = License.split(",");
 		
 	}
 
 	public String[] getLicense() {
 		return License;
-	}
-
-	public String getLicenseFormatted() {
-		final String joined = String.join(",", License);
-		return joined;
 	}
 
 	public void setLicense(final String[] license) {
