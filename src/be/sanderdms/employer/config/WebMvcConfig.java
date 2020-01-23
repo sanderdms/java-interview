@@ -50,6 +50,8 @@ public class WebMvcConfig  implements WebMvcConfigurer{
 		 configurer.enable();
 	  }
 
+	  
+
 
 	  //https://medium.com/@skywalkerhunter/charset-challenge-for-spring-boot-thymeleaf-mysql-internationalization-7ff91b5f2dfe
 	

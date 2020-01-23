@@ -12,7 +12,6 @@ public class MyUtils {
 	}
 
 	public static String encodeUTF8String(String str){
-
 		byte[] bytes = str.getBytes(StandardCharsets.ISO_8859_1);
 		str = new String(bytes, StandardCharsets.UTF_8);
 		return str;

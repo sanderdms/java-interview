@@ -64,7 +64,7 @@ public class Employer {
 	}
 
 	public void setFname(final String fname) {
-		this.fname =  MyUtils.capitalize( MyUtils.encodeUTF8String(fname).trim());
+		this.fname =  MyUtils.capitalize(fname.trim());
 	}
 
 	public Integer getAvailability() {
@@ -80,7 +80,7 @@ public class Employer {
 	}
 
 	public void setCity(final String city) {
-		this.city =  MyUtils.capitalize( MyUtils.encodeUTF8String(city).trim());
+		this.city =  MyUtils.capitalize(city.trim());
 	}
 
 	public String getDepartment() {
@@ -104,7 +104,7 @@ public class Employer {
 	}
 
 	public void setName(final String name) {
-		this.name = MyUtils.capitalize( MyUtils.encodeUTF8String(name).trim());
+		this.name = MyUtils.capitalize(name.trim());
 	}
 
 	public String getEmail() {
