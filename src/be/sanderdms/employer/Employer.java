@@ -1,5 +1,6 @@
 package be.sanderdms.employer;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,9 +48,7 @@ public class Employer {
 	//https://github.com/vladmihalcea/hibernate-types
 
 	protected Employer() {
-		
-		// set this.licenceStringArray = License.split(",");
-		
+				
 	}
 
 	public String[] getLicense() {
@@ -65,7 +64,7 @@ public class Employer {
 	}
 
 	public void setFname(final String fname) {
-		this.fname = MyUtils.capitalize(fname).trim();
+		this.fname =  MyUtils.capitalize( MyUtils.encodeUTF8String(fname).trim());
 	}
 
 	public Integer getAvailability() {
@@ -81,7 +80,7 @@ public class Employer {
 	}
 
 	public void setCity(final String city) {
-		this.city = MyUtils.capitalize(city).trim();
+		this.city =  MyUtils.capitalize( MyUtils.encodeUTF8String(city).trim());
 	}
 
 	public String getDepartment() {
@@ -105,7 +104,7 @@ public class Employer {
 	}
 
 	public void setName(final String name) {
-		this.name = MyUtils.capitalize(name).trim();
+		this.name = MyUtils.capitalize( MyUtils.encodeUTF8String(name).trim());
 	}
 
 	public String getEmail() {

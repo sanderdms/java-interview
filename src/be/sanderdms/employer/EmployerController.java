@@ -1,9 +1,9 @@
 package be.sanderdms.employer;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,8 +71,7 @@ public class EmployerController {
    
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveEmployer(@Valid @ModelAttribute("employer") Employer employer, BindingResult binding, final HttpServletRequest request, RedirectAttributes attr ) {
-    	
-    	if(binding.hasErrors()) {
+		if(binding.hasErrors()) {
         attr.addFlashAttribute("org.springframework.validation.BindingResult.employer", binding);
     	attr.addFlashAttribute("employer", employer); //--> https://github.com/spring-projects/spring-framework/issues/23589
 		String referer = request.getHeader("referer");
