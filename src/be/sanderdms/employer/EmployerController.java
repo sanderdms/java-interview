@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -43,13 +42,12 @@ public class EmployerController {
     @RequestMapping("/edit")
     public ModelAndView editEmployerForm(@RequestParam long id, final Model model){
     	ModelAndView mav = new ModelAndView("edit_employer");
-    	// Model can already be provided in case of errors during /save method
-    	// Check if model is already set, else take values from database
-    	if(!model.containsAttribute("employer")) {
-    		Employer employer = service.getById(id);
-        	mav.addObject("employer", employer);
+    	/* Model can already be provided in case of errors during /save method
+    	 Check if model is already set and (re)use this data, else take values from database*/
+    	if(model.containsAttribute("employer")) {
+			mav.addObject("employer", model.getAttribute("employer"));
     	}else {
-        	mav.addObject("employer", model.getAttribute("employer"));
+			mav.addObject("employer", service.getById(id));
     	}
     	return mav;
     }
