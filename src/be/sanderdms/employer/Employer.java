@@ -1,6 +1,5 @@
 package be.sanderdms.employer;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,45 +12,69 @@ import javax.validation.constraints.Size;
 
 import be.sanderdms.utils.MyUtils;
 
-@Table(name="Employer")
 @Entity
+@Table(name="Employer")
 public class Employer {
+	
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	/**
+	 * The last name of the employee.
+	 */
 	@NotBlank(message="Gelieve een naam in te voeren")
 	@Size(min=2, max=50, message="Naam moet tussen de 2 en 50 karakters bevatten")
 	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Naam kan geen nummers bevatten")
 	private String name;
-
+	
+	/**
+	 * The first name of the employee.
+	 */
 	@NotBlank(message="Gelieve een voornaam in te voeren")
 	@Size(min=2, max=50, message="Voornaam moet tussen de 2 en 50 karakters bevatten")
 	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Voornaam kan geen nummers bevatten")
 	private String fname; // firstName
-
+	
+	
+	/**
+	 * The email address of the employee
+	 */
 	@NotBlank(message="Gelieve een email in te voeren")
 	@Email(message ="Email is niet geldig")
 	private String email;
-
+	
+	
+	/**
+	 * A status indicating weather the employee is available for work or not.
+	 */
 	private Integer availability;
 	
+	
+	/**
+	 * The city of residence of the employee.
+	 */
 	@NotBlank(message="Gelieve een stad in te voeren")
 	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Stad kan geen nummers bevatten")
 	private String city;
 
-	//TODO: enumerate departments or fetch from departments table
-	private String department;
+	/**
+	 * The company department the employee is employed in.
+	 */
+	private String department; // TODO: consider enumerate
 	
-
-	private String[] License;
-	//https://thoughts-on-java.org/jpa-21-how-to-implement-type-converter/
-	//https://github.com/vladmihalcea/hibernate-types
-
+	/**
+	 * A list containing the employers driver license permits.
+	 */
+	private String[] License; // TODO: implement type converter
+	
 	protected Employer() {
 				
 	}
-
+	
+	// === GETTERS and SETTERS ===
+	
 	public String[] getLicense() {
 		return License;
 	}
@@ -113,7 +136,7 @@ public class Employer {
 	}
 
 	public void setEmail(final String email) {
-		this.email = email;
+		this.email = email.toLowerCase();
 	}
 
 }
