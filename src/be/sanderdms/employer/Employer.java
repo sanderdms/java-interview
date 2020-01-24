@@ -68,6 +68,7 @@ public class Employer {
 	
 	// ==== GETTERS and SETTERS ====
 	
+	
 	public String[] getLicense() {
 		return License;
 	}
