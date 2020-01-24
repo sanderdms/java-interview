@@ -5,10 +5,10 @@ import java.nio.charset.StandardCharsets;
 public class MyUtils {
 
     /**
-     * A helper method to capitalize strings. (First character is uppercase)
+     * A helper method to capitalize strings. (Make first character uppercase)
      * 
      * @param str The String that needs to be capitalized
-     * @return The String output
+     * @return The String capitalized
      */
     public static String capitalize(String str) {
         if (str == null || str.isEmpty()) {
