@@ -15,7 +15,6 @@ public class MyUtils {
 		byte[] bytes = str.getBytes(StandardCharsets.ISO_8859_1);
 		str = new String(bytes, StandardCharsets.UTF_8);
 		return str;
-
 	}
 
 }
