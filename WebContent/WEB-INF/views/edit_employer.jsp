@@ -25,6 +25,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script src="./assets/js/require.min.js"></script>
     <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1656784,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    <script>
       requirejs.config({
           baseUrl: '.'
       });
@@ -49,7 +59,7 @@
       <div class="header py-4">
         <div class="container">
           <div class="d-flex">
-            <a class="header-brand" href="/">
+            <a class="header-brand" href="./">
               <img src="./assets/images/logo.svg" class="header-brand-img" alt="TVH logo">
             </a>
             <div class="d-flex order-lg-2 ml-auto">

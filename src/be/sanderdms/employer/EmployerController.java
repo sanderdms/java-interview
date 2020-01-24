@@ -1,6 +1,5 @@
 package be.sanderdms.employer;
 
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
