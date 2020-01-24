@@ -65,9 +65,6 @@ public class Employer {
 	 */
 	private String[] License; // TODO: implement type converter
 	
-	protected Employer() {
-				
-	}
 	
 	// ==== GETTERS and SETTERS ====
 	
