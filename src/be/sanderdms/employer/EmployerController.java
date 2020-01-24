@@ -33,17 +33,19 @@ public class EmployerController {
     
     @RequestMapping("/new")
     public String newEmployerForm(final Model model) {
+    	/* Model can already be provided in case of errors during /save method. 
+    	 * If model is not set, instantiate a new (empty) Employer and add to model*/
 	   if(!model.containsAttribute("employer")){
 	        model.addAttribute("employer", new Employer());
-	    }
-    	return "new_employer";
+	   }
+	   return "new_employer";
     }
     
     @RequestMapping("/edit")
     public ModelAndView editEmployerForm(@RequestParam long id, final Model model){
     	ModelAndView mav = new ModelAndView("edit_employer");
-    	/* Model can already be provided in case of errors during /save method
-    	 Check if model is already set and (re)use this data, else take values from database*/
+    	/* Model can already be provided in case of errors during /save method.
+    	 * Check if model is already set and (re)use this data, else take values from database*/
     	if(model.containsAttribute("employer")) {
 			mav.addObject("employer", model.getAttribute("employer"));
     	}else {
@@ -68,7 +70,7 @@ public class EmployerController {
     	}else {
         	service.save(employer);
     	}
-    	return "redirect:/";
+		return "redirect:/";
     }
     
 }

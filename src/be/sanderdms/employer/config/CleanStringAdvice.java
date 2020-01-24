@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 import be.sanderdms.utils.MyUtils;
 
-// Clean incoming String from controllers. (userinput)
-// UTF-8 encode 
+/* Sanitize incoming input from controllers.
+ * force UTF-8 encoding */
 
 @ControllerAdvice
 public class CleanStringAdvice {
@@ -19,8 +19,6 @@ public class CleanStringAdvice {
 		@Override
 		public void setAsText(String text) {
 			text = MyUtils.encodeUTF8String(text); // TODO: find root cause for this
-			// https://stackoverflow.com/questions/37289097/hibernate-spring-encode-charater-set-wrong-utf-8 
-			System.out.println(text);
 			if (text == null) {
 				setValue(null);
 			}
@@ -29,7 +27,6 @@ public class CleanStringAdvice {
 				setValue(safe);
 			}
 		}
-
 	}
 
 	@InitBinder
