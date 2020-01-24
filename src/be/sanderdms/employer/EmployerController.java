@@ -18,9 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class EmployerController {
-	
-	@Autowired
-	private EmployerService service;
+
+    @Autowired
+    private EmployerService service;
 
     @RequestMapping("/")
     public ModelAndView home(){
@@ -30,47 +30,47 @@ public class EmployerController {
         mav.addObject("list", listEmployer);
         return mav;
     }
-    
+
     @RequestMapping("/new")
     public String newEmployerForm(final Model model) {
-    	/* Model can already be provided in case of errors during /save method. 
-    	 * If model is not set, instantiate a new (empty) Employer and add to model*/
-	   if(!model.containsAttribute("employer")){
-	        model.addAttribute("employer", new Employer());
-	   }
-	   return "new_employer";
+        /* Model can already be provided in case of errors during /save method.
+         * If model is not set, instantiate a new (empty) Employer and add to model*/
+       if(!model.containsAttribute("employer")){
+            model.addAttribute("employer", new Employer());
+       }
+       return "new_employer";
     }
-    
+
     @RequestMapping("/edit")
     public ModelAndView editEmployerForm(@RequestParam long id, final Model model){
-    	ModelAndView mav = new ModelAndView("edit_employer");
-    	/* Model can already be provided in case of errors during /save method.
-    	 * Check if model is already set and (re)use this data, else take values from database*/
-    	if(model.containsAttribute("employer")) {
-			mav.addObject("employer", model.getAttribute("employer"));
-    	}else {
-			mav.addObject("employer", service.getById(id));
-    	}
-    	return mav;
+        ModelAndView mav = new ModelAndView("edit_employer");
+        /* Model can already be provided in case of errors during /save method.
+         * Check if model is already set and (re)use this data, else take values from database*/
+        if(model.containsAttribute("employer")) {
+            mav.addObject("employer", model.getAttribute("employer"));
+        }else {
+            mav.addObject("employer", service.getById(id));
+        }
+        return mav;
     }
-    
+
     @RequestMapping("/delete")
     public String deleteCustomer(@RequestParam long id) {
-    	service.delete(id);
-    	return "redirect:/";
+        service.delete(id);
+        return "redirect:/";
     }
-    
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveEmployer(@Valid @ModelAttribute("employer") Employer employer, BindingResult binding, final HttpServletRequest request, RedirectAttributes attr ) {
-		if(binding.hasErrors()) {
-	        attr.addFlashAttribute("org.springframework.validation.BindingResult.employer", binding);
-	    	attr.addFlashAttribute("employer", employer); // Make sure WebMvcConfigurer is annotated with @EnableWebMvc
-			String referer = request.getHeader("referer");
-	    	return "redirect:" +referer;
-    	}else {
-        	service.save(employer);
-    	}
-		return "redirect:/";
+        if(binding.hasErrors()) {
+            attr.addFlashAttribute("org.springframework.validation.BindingResult.employer", binding);
+            attr.addFlashAttribute("employer", employer); // Make sure WebMvcConfigurer is annotated with @EnableWebMvc
+            String referer = request.getHeader("referer");
+            return "redirect:" +referer;
+        }else {
+            service.save(employer);
+        }
+        return "redirect:/";
     }
-    
+
 }
