@@ -13,124 +13,122 @@ import javax.validation.constraints.Size;
 import be.sanderdms.utils.MyUtils;
 
 @Entity
-@Table(name="Employer")
+@Table(name = "Employer")
 public class Employer {
-	 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	/**
-	 * The last name of the employee.
-	 */
-	@NotBlank(message="Gelieve een naam in te voeren")
-	@Size(min=2, max=50, message="Naam moet tussen de 2 en 50 karakters bevatten")
-	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Naam kan geen nummers bevatten")
-	private String name;
-	
-	/**
-	 * The first name of the employee.
-	 */
-	@NotBlank(message="Gelieve een voornaam in te voeren")
-	@Size(min=2, max=50, message="Voornaam moet tussen de 2 en 50 karakters bevatten")
-	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Voornaam kan geen nummers bevatten")
-	private String fname; // firstName
-	
-	/**
-	 * The email address of the employee.
-	 */
-	@NotBlank(message="Gelieve een email in te voeren")
-	@Email(message ="Email is niet geldig")
-	private String email;
-	
-	/**
-	 * A status indicating weather the employee is available for work or not.
-	 */
-	private Integer availability;
-	
-	/**
-	 * The city of residence of the employee.
-	 */
-	@NotBlank(message="Gelieve een stad in te voeren")
-	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Stad kan geen nummers bevatten")
-	private String city;
 
-	/**
-	 * The company department the employee is employed in.
-	 */
-	private String department; // TODO: consider enumerate
-	
-	/**
-	 * A list containing the employers driver license permits.
-	 */
-	private String[] License; // TODO: implement type converter
-	
-	
-	// ==== GETTERS and SETTERS ====
-	
-	
-	public String[] getLicense() {
-		return License;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setLicense(final String[] license) {
-		License = license;
-	}
+    /**
+     * The last name of the employee.
+     */
+    @NotBlank(message = "Gelieve een naam in te voeren")
+    @Size(min = 2, max = 50, message = "Naam moet tussen de 2 en 50 karakters bevatten")
+    @Pattern(regexp = "^$|(^[^0-9]+$)", message = "Naam kan geen nummers bevatten")
+    private String name;
 
-	public String getFname() {
-		return fname;
-	}
+    /**
+     * The first name of the employee.
+     */
+    @NotBlank(message = "Gelieve een voornaam in te voeren")
+    @Size(min = 2, max = 50, message = "Voornaam moet tussen de 2 en 50 karakters bevatten")
+    @Pattern(regexp = "^$|(^[^0-9]+$)", message = "Voornaam kan geen nummers bevatten")
+    private String fname; // firstName
 
-	public void setFname(final String fname) {
-		this.fname =  MyUtils.capitalize(fname.trim());
-	}
+    /**
+     * The email address of the employee.
+     */
+    @NotBlank(message = "Gelieve een email in te voeren")
+    @Email(message = "Email is niet geldig")
+    private String email;
 
-	public Integer getAvailability() {
-		return availability;
-	}
+    /**
+     * A status indicating weather the employee is available for work or not.
+     */
+    private Integer availability;
 
-	public void setAvailability(final Integer availability) {
-		this.availability = availability;
-	}
+    /**
+     * The city of residence of the employee.
+     */
+    @NotBlank(message = "Gelieve een stad in te voeren")
+    @Pattern(regexp = "^$|(^[^0-9]+$)", message = "Stad kan geen nummers bevatten")
+    private String city;
 
-	public String getCity() {
-		return city;
-	}
+    /**
+     * The company department the employee is employed in.
+     */
+    private String department; // TODO: consider enumerate
 
-	public void setCity(final String city) {
-		this.city =  MyUtils.capitalize(city.trim());
-	}
+    /**
+     * A list containing the employers driver license permits.
+     */
+    private String[] License; // TODO: implement type converter
 
-	public String getDepartment() {
-		return department;
-	}
+    // ==== GETTERS and SETTERS ====
 
-	public void setDepartment(final String department) {
-		this.department = department;
-	}
+    public String[] getLicense() {
+        return License;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setLicense(final String[] license) {
+        License = license;
+    }
 
-	public void setId(final Long id) {
-		this.id = id;
-	}
+    public String getFname() {
+        return fname;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setFname(final String fname) {
+        this.fname = MyUtils.capitalize(fname.trim());
+    }
 
-	public void setName(final String name) {
-		this.name = MyUtils.capitalize(name.trim());
-	}
+    public Integer getAvailability() {
+        return availability;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setAvailability(final Integer availability) {
+        this.availability = availability;
+    }
 
-	public void setEmail(final String email) {
-		this.email = email.toLowerCase();
-	}
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(final String city) {
+        this.city = MyUtils.capitalize(city.trim());
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(final String department) {
+        this.department = department;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = MyUtils.capitalize(name.trim());
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(final String email) {
+        this.email = email.toLowerCase();
+    }
 
 }
