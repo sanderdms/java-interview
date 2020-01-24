@@ -15,7 +15,6 @@ import be.sanderdms.utils.MyUtils;
 @Entity
 @Table(name="Employer")
 public class Employer {
-	
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,20 +36,17 @@ public class Employer {
 	@Pattern(regexp = "^$|(^[^0-9]+$)", message = "Voornaam kan geen nummers bevatten")
 	private String fname; // firstName
 	
-	
 	/**
-	 * The email address of the employee
+	 * The email address of the employee.
 	 */
 	@NotBlank(message="Gelieve een email in te voeren")
 	@Email(message ="Email is niet geldig")
 	private String email;
 	
-	
 	/**
 	 * A status indicating weather the employee is available for work or not.
 	 */
 	private Integer availability;
-	
 	
 	/**
 	 * The city of residence of the employee.
@@ -73,7 +69,7 @@ public class Employer {
 				
 	}
 	
-	// === GETTERS and SETTERS ===
+	// ==== GETTERS and SETTERS ====
 	
 	public String[] getLicense() {
 		return License;
