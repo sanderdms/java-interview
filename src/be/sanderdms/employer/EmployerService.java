@@ -30,6 +30,7 @@ public class EmployerService {
     }
 
     /**
+     * Get an employer by its unique id
      * 
      * @param id
      * @return the Employer object matching the requested id or empty if no result found
@@ -37,10 +38,10 @@ public class EmployerService {
     public Employer getById(long id) {
         Optional<Employer> result = repo.findById(id);
         return result.get();
-
     }
 
     /**
+     * Delete an employer by its unique id
      * 
      * @param id the id to delete from database
      */
@@ -49,7 +50,7 @@ public class EmployerService {
     }
 
     /**
-     * Count the items present in database
+     * Count the employers present in database
      * 
      * @return a Long representing the amount of items in database
      */
