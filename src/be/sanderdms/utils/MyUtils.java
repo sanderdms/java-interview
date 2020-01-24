@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 public class MyUtils {
 	
 	/**
-	 * A helper class to capitalize strings. (First character is uppercase)
+	 * A helper method to capitalize strings. (First character is uppercase)
 	 * 
 	 * @param str The String that needs to be capitalized
 	 * @return The String output
@@ -18,7 +18,7 @@ public class MyUtils {
     }
 
     /**
-     * A helper class that converts any String input to UTF-8 character set.
+     * A helper method that converts any String input to UTF-8 character set.
      * 
      * @param str The String that needs to be converted to UTF-8
      * @return The String UTF-8 encoded
