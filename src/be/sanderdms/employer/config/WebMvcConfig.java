@@ -36,7 +36,6 @@ public class WebMvcConfig  implements WebMvcConfigurer{
 		registry
 		.addResourceHandler("/assets/plugins/**")
 		.addResourceLocations("/resources/tabler/assets/plugins/");
-	
 	}
 
 	@Override
